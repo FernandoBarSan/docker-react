@@ -1,0 +1,10 @@
+sudo: required
+language: generic
+services: 
+    - docker
+
+before_install:
+    - docker build -t fernandobarsan/docker-react -f Dockerfile.dev .
+
+script: 
+    - docker run fernandobarsan/docker-react npm run test -- --coverage
